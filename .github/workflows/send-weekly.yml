@@ -2,7 +2,7 @@ name: Send Weekly Email
 
 on:
   schedule:
-    - cron: '0 8 * * 1'  # Thứ Hai hàng tuần lúc 8h sáng UTC
+    - cron: '0 10 * * 3'  # Thứ Tư hàng tuần lúc 10h sáng UTC
   workflow_dispatch:
 
 jobs:

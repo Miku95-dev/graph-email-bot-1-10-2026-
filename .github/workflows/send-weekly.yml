@@ -1,1 +1,29 @@
+name: Send Weekly Email
 
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Thứ Hai hàng tuần lúc 8h sáng UTC
+  workflow_dispatch:
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+    env:
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      TENANT_ID: ${{ secrets.TENANT_ID }}
+      USER_EMAIL: ${{ secrets.USER_EMAIL }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests python-dotenv
+
+      - name: Run email script
+        run: python send_email.py

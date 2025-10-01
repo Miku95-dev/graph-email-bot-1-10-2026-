@@ -42,7 +42,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-content = "Chào bạn, đây là tệp anime2d được gửi từ Graph API."
+content = "Chào bạn, đây là tệp Tinh Thần Biến được gửi từ Graph API."
 encoded = base64.b64encode(content.encode("utf-8")).decode("utf-8")
 
 email_data = {
@@ -62,7 +62,7 @@ email_data = {
         "attachments": [
             {
                 "@odata.type": "#microsoft.graph.fileAttachment",
-                "name": "anime2d.txt",
+                "name": "Tinh Thần Biến.txt",
                 "contentBytes": encoded
             }
         ]
